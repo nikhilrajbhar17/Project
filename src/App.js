@@ -1,25 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Navbar from "./Components/Navbar";
+import Carousel from "./Components/Carousal";
+import AboutUs from "./Components/AboutUs";
+import LandingImage from "./Components/LandingImage";
+import BeautyThats from "./Components/BeautyThats";
+import SeeAllServices from "./Components/SeeAllServices";
+import ConnectWithUs from "./Components/ConnectWithUs";
+import VlogDiv from "./Components/VlogDiv";
+import Footer from "./Components/Footer";
+import Home from "./Components/Home";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="App">
+        {/* Navigation visible on all pages */}
+        <Navbar />
+
+        {/* Dynamic content area */}
+        <div className="content">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            {/* <Route path="/about" element={<About />} />
+            <Route path="/services" element={<Services />} />
+            <Route path="/contact" element={<Contact />} /> */}
+          </Routes>
+        </div>
+
+        {/* Footer visible on all pages */}
+        <Footer />
+      </div>
+    </Router>
   );
-}
+};
 
 export default App;
